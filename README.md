@@ -9,6 +9,7 @@ The chair of a conference must assign scientific papers to reviewers in a balanc
 Input:
 - Line 1 contains N, M and b
 - Line i+1 (i = 1,…,N) contains a positive integer k followed by k positive integers representing the list L(i)
+
 Output:
 - Line 1: contains N
 - Line i + 1 (i = 1, . . ., N): contains b and b integers r(i, 1), r(i, 2), . . ., r(i, b) which are the list of reivewers assigned to paper i
