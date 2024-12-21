@@ -1,5 +1,5 @@
 # Fundamental-of-Optimization-Mini-Project
-# Topic 14 - Paper Reviewer Assignment
+Topic 14 - Paper Reviewer Assignment
 
 The chair of a conference must assign scientific papers to reviewers in a balance way. There are N papers 1, 2, …, N and M reviewers 1, 2, …, M. Each paper i has a list L(i) of reviewers who are willing to review that paper. A review plan is an assignment reviewers to papers. The load of a reviewer is the number of papers he/she have to review. Given a constant b, compute the assignment such that:
 Each paper is reviewed by exactly b reviewers 
