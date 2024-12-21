@@ -7,26 +7,26 @@ The chair of a conference must assign scientific papers to reviewers in a balanc
 - In the solution, each paper i is represented by a list r(i, 1), r(i, 2), . . ., r(i, b) of b reviewers asssigned to this paper
 
 Input:
-Line 1 contains N, M and b
-Line i+1 (i = 1,…,N) contains a positive integer k followed by k positive integers representing the list L(i)
+  Line 1 contains N, M and b
+  Line i+1 (i = 1,…,N) contains a positive integer k followed by k positive integers representing the list L(i)
 Output:
-Line 1: contains N
-Line i + 1 (i = 1, . . ., N): contains b and b integers r(i, 1), r(i, 2), . . ., r(i, b) which are the list of reivewers assigned to paper i
+ Line 1: contains N
+ Line i + 1 (i = 1, . . ., N): contains b and b integers r(i, 1), r(i, 2), . . ., r(i, b) which are the list of reivewers assigned to paper i
 
 Example:
 
 Input:
-5 3 2
-3 1 2 3 
-2 1 2
-3 1 2 3
-3 1 2 3 
-2 1 3
+  5 3 2
+  3 1 2 3 
+  2 1 2
+  3 1 2 3
+  3 1 2 3 
+  2 1 3
 
 Output:
-5
-2 1 2
-2 1 2
-2 3 1
-2 3 2
-2 3 1
+  5
+  2 1 2
+  2 1 2
+  2 3 1
+  2 3 2
+  2 3 1
