@@ -13,7 +13,8 @@ Output
 Line 1: contains N
 Line i + 1 (i = 1, . . ., N): contains b and b integers r(i, 1), r(i, 2), . . ., r(i, b) which are the list of reivewers assigned to paper i
 
-Example\n
+Example
+
 Input
 5 3 2
 3 1 2 3 
