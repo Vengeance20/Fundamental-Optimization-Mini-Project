@@ -1,0 +1,63 @@
+from itertools import combinations
+from collections import defaultdict
+import sys
+
+# Input function to parse data
+def read_input():
+    n, m, b = map(int, input().split())  # Number of papers, reviewers, and b
+    paper_preferences = []
+    for _ in range(n):
+        line = list(map(int, input().split()))
+        paper_preferences.append(line[1:])  # Ignore the first number (k)
+    return n, m, b, paper_preferences
+
+# Function to calculate the load of each reviewer
+def calculate_load(assignments, m):
+    load = [0] * (m + 1)  # Reviewer indices start from 1
+    for reviewers in assignments.values():
+        for reviewer in reviewers:
+            load[reviewer] += 1
+    return max(load)
+
+# Brute force to find the optimal assignment
+def brute_force_assignment(n, m, b, paper_preferences):
+    all_assignments = {}
+    min_load = float('inf')
+
+    # Generate all possible assignments
+    for paper in range(n):
+        all_assignments[paper] = list(combinations(paper_preferences[paper], b))
+
+    # Recursive function to try all combinations
+    def backtrack(current_paper, current_assignment):
+        nonlocal min_load, best_assignment
+
+        if current_paper == n:  # All papers are assigned
+            load = calculate_load(current_assignment, m)
+            if load < min_load:
+                min_load = load
+                best_assignment = {key: list(val) for key, val in current_assignment.items()}
+            return
+
+        # Try all combinations for the current paper
+        for assignment in all_assignments[current_paper]:
+            current_assignment[current_paper] = assignment
+            backtrack(current_paper + 1, current_assignment)
+            del current_assignment[current_paper]
+
+    best_assignment = {}
+    backtrack(0, {})
+
+    return best_assignment, min_load
+
+# Main function
+def main():
+    n, m, b, paper_preferences = read_input()
+    optimal_assignment, min_load = brute_force_assignment(n, m, b, paper_preferences)
+
+    print(n)
+    for paper in range(n):
+        print(b, *optimal_assignment[paper])
+
+if __name__ == "__main__":
+    main()
