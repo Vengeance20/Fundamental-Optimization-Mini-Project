@@ -1,10 +1,10 @@
 # Fundamental Optimization Mini Project
 
-Group 11 members:\n
-    Bùi Công Minh
-    Trần Hoài Nam
-    Trần Ngọc Tuấn
-    Nguyễn Hùng Quang
+Group 11 members:
+- Bùi Công Minh
+- Trần Hoài Nam
+- Trần Ngọc Tuấn
+- Nguyễn Hùng Quang
 
 
 Our Mini Project topic: Topic 14 - Paper Reviewer Assignment
