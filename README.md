@@ -1,9 +1,13 @@
 # Fundamental Optimization Mini Project
 
 Group 11:
+
 Bùi Công Minh
+
 Trần Hoài Nam
+
 Trần Ngọc Tuấn
+
 Nguyễn Hùng Quang
 
 Our Mini Project topic:
