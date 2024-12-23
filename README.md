@@ -3,9 +3,9 @@
 Group 11:
 
 Bùi Công Minh
-Trần Hoài Nam
-Trần Ngọc Tuấn
-Nguyễn Hùng Quang
+    Trần Hoài Nam
+    Trần Ngọc Tuấn
+    Nguyễn Hùng Quang
 
 
 Our Mini Project topic: Topic 14 - Paper Reviewer Assignment
