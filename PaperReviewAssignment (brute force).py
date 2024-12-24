@@ -1,3 +1,4 @@
+#PYTHON 
 from itertools import combinations
 
 # Input function to parse data
@@ -36,7 +37,6 @@ def find_optimal_assignment(n, m, b, paper_preferences):
             if max_load < min_load:  # Update the best solution if found
                 min_load = max_load
                 best_assignment = [list(assignment) for assignment in current_assignment]
-                print (1)
             return
 
         # Sort preferences of reviewers for the current paper based on their current load (lighter reviewers first)
