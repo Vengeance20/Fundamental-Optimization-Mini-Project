@@ -42,23 +42,32 @@ def find_optimal_assignment(n, m, b, paper_preferences):
         # Sort preferences of reviewers for the current paper based on their current load (lighter reviewers first)
         sorted_reviewers = sorted(paper_preferences[paper], key=lambda r: load[r])
 
-        # Try all combinations of b reviewers for the current paper
-        for reviewers in combinations(sorted_reviewers, b):
-            # Check and update load
-            valid = True
-            for reviewer in reviewers:
-                load[reviewer] += 1
-                if load[reviewer] > min_load:  # Prune if load exceeds current minimum
-                    valid = False
-                    break
+        # Check if there are only 2 reviewers available for the paper
+        if len(sorted_reviewers) == b:
+            # Allow this combination regardless of load if it's the only option
+            current_assignment[paper] = sorted_reviewers
+            backtrack(paper + 1)
+        else:
+        # Proceed with normal pruning if it's not the case
+            # Try all combinations of b reviewers for the current paper
+            for reviewers in combinations(sorted_reviewers, b):
+                # Check and update load
+                valid = True
+                updated_reviewers = []   # List to store reviewers whose load has been increased
+                for reviewer in reviewers:
+                    updated_reviewers.append(reviewer)  # Record the reviewer whose load was increased
+                    load[reviewer] += 1
+                    if load[reviewer] > min_load:  # Prune if load exceeds current minimum
+                        valid = False
+                        break
 
-            if valid:  # Proceed only if valid
-                current_assignment[paper] = reviewers
-                backtrack(paper + 1)
+                if valid:  # Proceed only if valid
+                    current_assignment[paper] = reviewers
+                    backtrack(paper + 1)
 
-            # Revert load (backtrack step)
-            for reviewer in reviewers:
-                load[reviewer] -= 1
+                # Revert load (backtrack step) only for reviewers in updated_reviewers
+                for reviewer in updated_reviewers:
+                    load[reviewer] -= 1
 
     # Start backtracking from the first paper
     backtrack(0)
