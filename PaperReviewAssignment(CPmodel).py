@@ -20,21 +20,10 @@ def assign_reviewers_optimized(N, M, b, L):
     for j in range(1, M + 1):
         model.Add(sum(x[i, j] for i in range(N) if j in L[i]) <= max_load)
 
-    # Symmetry-breaking: Assign reviewers in increasing order
-    for i in range(N):
-        for k in range(len(L[i]) - 1):
-            j1, j2 = L[i][k], L[i][k + 1]
-            model.Add(x[i, j1] <= x[i, j2])
-
-    # Minimize  max_load
+    # Minimize max_load
     model.Minimize(max_load)
 
-    all_vars = [x[i, j] for i in range(N) for j in L[i]]
-    model.AddDecisionStrategy(all_vars, 
-                               cp_model.CHOOSE_LOWEST_MIN, 
-                               cp_model.SELECT_MIN_VALUE)
-
-    # Solver
+    # Solve the model
     solver = cp_model.CpSolver()
     status = solver.Solve(model)
 
@@ -55,6 +44,7 @@ def main():
     N, M, b = map(int, data[0].split())
     L = [list(map(int, line.split()))[1:] for line in data[1:N + 1]]
     assign_reviewers_optimized(N, M, b, L)
+
 
 if __name__ == "__main__":
     main()
