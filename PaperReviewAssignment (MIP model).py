@@ -14,7 +14,7 @@ for i in range(N):
         P[i][lst[i + 1][k] - 1] = 1
 
 def main():
-    solver = pywraplp.Solver.CreateSolver("CP-SAT")
+    solver = pywraplp.Solver.CreateSolver("SCIP")
     if not solver:
         return
 
